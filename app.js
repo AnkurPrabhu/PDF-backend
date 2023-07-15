@@ -22,10 +22,6 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: store,
-    cookie: {
-      secure: true,
-      sameSite: "none",
-    },
   })
 );
 
@@ -50,18 +46,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: function (origin, callback) {
-      // Check if the request origin is allowed
-      // You can implement your own logic here
-
-      // For example, you could allow all origins:
-      callback(null, true);
-
-      // Or you could check if the origin is in a list of allowed domains:
-      // var allowedOrigins = ["http://example.com", "http://anotherdomain.com"];
-      // var isAllowedOrigin = allowedOrigins.includes(origin);
-      // callback(isAllowedOrigin ? null : new Error("Origin not allowed"), isAllowedOrigin);
-    },
+    origin: process.env.ORIGIN,
     credentials: true,
   })
 );
