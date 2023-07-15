@@ -54,6 +54,7 @@ app.use(
   cors({
     origin: process.env.ORIGIN,
     credentials: true,
+    exposedHeaders: \["Set-cookie"\]
   })
 );
 //routes
