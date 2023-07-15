@@ -22,6 +22,12 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: store,
+    cookie: {
+    secure: false,
+    httpOnly: true,
+      
+    SameSite: 'none',
+  }
   })
 );
 
